@@ -10,7 +10,11 @@ from resources.store import Store, StoreList
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','sqlight:///data.db')
+db_uri = os.environ.get('DATABASE_URL','sqlight:///data.db')
+# Handle deprecated heroku uri ('postgres://' -> 'postgresql://')
+if db_uri.startswith("postgres://"):
+    db_uri = db_uri.replace("postgres://", "postgresql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'mysecretkey'
 api = Api(app)
