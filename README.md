@@ -1,2 +1,15 @@
 # udemy-flask-api-deploy
-Deployable version of the udemy flask api code
+
+Deployable version of the udemy flask api code. This version is designed
+for deploying to heroku. 
+
+## Devations from tutorial
+
+* this repo employs the flask-jwt-extension
+* the requirements.txt came from another flask tutorial
+
+## API Documentation
+
+Coming soon
+
+
