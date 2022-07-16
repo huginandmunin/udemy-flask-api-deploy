@@ -16,6 +16,7 @@ if db_uri.startswith("postgres://"):
     db_uri = db_uri.replace("postgres://", "postgresql://", 1)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['PROPAGATE_EXDEPTIONS'] = True
 app.secret_key = 'mysecretkey'
 api = Api(app)
 
